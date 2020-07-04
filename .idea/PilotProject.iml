@@ -8,5 +8,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="dx.common" level="application" />
+    <orderEntry type="library" name="dx.light" level="application" />
+    <orderEntry type="library" name="dx.all" level="application" />
   </component>
 </module>
