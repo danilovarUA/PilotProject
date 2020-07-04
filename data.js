@@ -1,4 +1,4 @@
-var tabs = [
+const tabs = [
     {
         id: 0,
         text: "People",
