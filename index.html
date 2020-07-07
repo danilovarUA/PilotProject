@@ -12,14 +12,33 @@
     <script src="index.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="data.js"></script>
+
     <title>Book of Reference</title>
+
 </head>
 <body class="dx-viewport">
-<h1 id="mainTitle">Books</h1>
-<div class="tabs-container">
-    <div id="tabs">
-        <div class="tabs-container"></div>
+<div class="container">
+
+    <h1 id="mainTitle">Books</h1>
+    <div class="tabs-container" onclick="loadTable()">
+        <div id="tabs">
+            <div class="tabs-container"></div>
+        </div>
     </div>
+    <div id="gridContainer" onclick="toggleModal(event)"></div>
+
+    <div id="modalDiv" class="modal">
+        <div class="modal-content">
+            <span id="closeButton" onclick="toggleModal()">&times;</span>
+            <div class="form-container">
+                <div class="long-title"><h3>Details</h3></div>
+                <div id="form-container">
+                    <div id="form"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 </body>
 </html>
