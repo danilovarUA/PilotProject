@@ -21,7 +21,7 @@ const VALUE_TO_COLUMNS = {
     }
 }
 
-// data at tese indexes should be additionally loaded since it onyl contains links
+// data at these indexes should be additionally loaded since it only contains links
 const DATA_LOAD_INDEX = {
     "People": {"single": [
         "homeworld"
