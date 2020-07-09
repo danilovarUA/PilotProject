@@ -18,6 +18,9 @@ function loadTable() {
         rowAlternationEnabled: true,
         dataSource: source,
         columns: VALUE_TO_COLUMNS["general"][value],
+        editorOptions: {
+            disabled: true
+        },
         showBorders: true,
         paging: {
             pageSize: DEFAULT_PAGE_SIZE
@@ -53,12 +56,25 @@ function toggleModal(event){
 
 function loadModal(row){
     let value = $('.dx-tab-selected span').text();
+    items = []
+    for (column of VALUE_TO_COLUMNS["detailed"][value]){
+        const new_item = {
+            dataField: column,
+            editorOptions: {
+                disabled: true
+            }
+        }
+        items.push(new_item)
+    }
     let source = people
     if (value === "Planets"){source = planets}
     $("#form").dxForm({
         colCount: 2,
         formData: source[row],
-        items: VALUE_TO_COLUMNS["detailed"][value]
+        items: items,
+        editorOptions: {
+            disabled: true
+        }
     });
 }
 
