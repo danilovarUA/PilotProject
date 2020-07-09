@@ -15,6 +15,7 @@ function loadTable() {
     let source = people
     if (value === "Planets"){source = planets}
     $("#gridContainer").dxDataGrid({
+        rowAlternationEnabled: true,
         dataSource: source,
         columns: VALUE_TO_COLUMNS["general"][value],
         showBorders: true,
@@ -28,19 +29,25 @@ function loadTable() {
         },
     });
 }
-
+let justOpened = false  // used in case open is clicked and closing is trying to close it right after
 let modalOpened = false
 function toggleModal(event){
     let row;
     if (event !== undefined){
         row = parseInt(event.target.parentNode.getAttribute("aria-rowindex")) - 1
+        if (isNaN(row)){  // that is either name of column or selector for number of rows per page
+            return
+    }
     }
     // TODO: Why isn't it working with JQuery?
     if (modalOpened) {
+        console.log("Closing")
         document.getElementById("modalDiv").style.display = "none";
     }
     else {
+        console.log("Opening")
         document.getElementById("modalDiv").style.display = "block";
+        justOpened = true
         loadModal(row);
     }
     modalOpened = !modalOpened
@@ -55,4 +62,15 @@ function loadModal(row){
         formData: source[row],
         items: VALUE_TO_COLUMNS["detailed"][value]
     });
+}
+
+//or esc pressed
+function tryCloseModal(e){
+    if (justOpened){
+        justOpened = false
+        return
+    }
+    if (  modalOpened && e.target === (document.getElementById("modalDiv"))  ){
+        toggleModal()
+    }
 }
