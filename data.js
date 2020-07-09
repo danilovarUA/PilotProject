@@ -101,7 +101,6 @@ function loadSingleData(url) {
 function waitForSingleDataToLoad(){
     while (!allSingleDataLoaded())
     {
-        console.log("Not all data loaded yet, waiting")
     }
     replaceLinksWithNames()
 }

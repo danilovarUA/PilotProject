@@ -41,11 +41,9 @@ function toggleModal(event){
     }
     // TODO: Why isn't it working with JQuery?
     if (modalOpened) {
-        console.log("Closing")
         document.getElementById("modalDiv").style.display = "none";
     }
     else {
-        console.log("Opening")
         document.getElementById("modalDiv").style.display = "block";
         justOpened = true
         loadModal(row);
